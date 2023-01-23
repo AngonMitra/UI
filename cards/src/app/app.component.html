@@ -1,0 +1,84 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1 style="text-align: center;">Angular + ASP.Net Crud</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+
+      <div class="row mt-5">
+
+        <div class="col-md-5">
+          <form #form="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group my-2">
+              <label for="">Card Holder Name</label>
+              <input class="form-control" type="text" name="cardHolderName" [(ngModel)]="card.cardholderName">
+            </div>
+            <div class="form-group">
+              <label for="">Card Number</label>
+              <input class="form-control" type="text" name="cardNumber" [(ngModel)]="card.cardNumber">
+            </div>
+
+            <div class="row my-2">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="">CVC</label>
+                  <input class="form-control" type="text" name="cvc" [(ngModel)]="card.cvc">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="">Expiry Month</label>
+                  <input class="form-control" type="text" name="expiryMonth" [(ngModel)]="card.expiryMonth">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="">Expiry Year</label>
+                  <input class="form-control" type="text" name="expiryYear" [(ngModel)]="card.expiryYear">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-success form-control">Save</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-md-7">
+          <table class="table table-striped table-bordered mt-4">
+            <thead>
+              <tr>
+                <th>#ID</th>
+                <th>Card Holder Name</th>
+                <th>card Number</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let cd of cards">
+                <td>{{ cd.id}}</td>
+                <td>{{ cd.cardholderName}}</td>
+                <td>{{ cd.cardNumber}}</td>
+                <td>
+                  <button (click)="deleteCard(cd.id)" class="btn btn-sm btn-danger mx-1"><i class="fa-solid fa-trash"></i></button>
+                  <button (click)="editCard(cd)" class="btn btn-sm btn-success"><i class="fa-solid fa-bars"></i></button>
+
+                </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+ 
+</div>
